@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+.body{
+    background-color: #192a56;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.table{
+    border: 2px solid #fbc531;
+}
+
+.tbody{
+    background-color: #273c75;
+}
+
+.tr{
+    padding: 10px 20px;
+}
+
+.th{
+    padding: 20px 30px;
+    font-size: 24px;
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+}
+
+.th:hover{
+    transform: scale(1.1);
+    transition: 850ms;
+}
+.td{
+    padding: 10px 20px;
+    color: #ac8721;
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+}
+.td:hover{
+    transform: scale(1.2);
+    transition: 850ms;
+}
+
+.th:nth-child(even){
+    background-color: #192a56;
+    color: #fbc531;
+}
+.th:nth-child(odd){
+    color: #192a56;
+    background-color: #fbc531;
+}

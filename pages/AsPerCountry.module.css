@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+
+.heading{
+    text-align: center;
+    font-size: 3rem;
+    border-bottom: 1px solid #221777;
+}
+
+.container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    background-color: #6c5ce7;
+    
+}
+
+.card{
+    height: 60vh;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.head{
+    height: 20vh;
+    width: 60vw;
+    margin-bottom: 2rem;
+    color: white;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.para2{
+    font-size: 1.5rem;
+}
+
+.detail{
+    height: 30vh;
+    width: 60vw;
+    display: flex;
+    font-weight: bolder;
+}
+.head,.recovered,.critical,.deaths,.confirmed{
+    border-radius: 5px;
+}
+.recovered,.critical,.deaths,.confirmed{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    width: 15vw;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+
+.confirmed:hover,.critical:hover{
+    background-color: #5641f0;
+    color: #221777;
+    transition: 750ms;
+}
+
+.recovered:hover,.deaths:hover{
+    background-color: #5641f0;
+    color: white;
+    transition: 750ms;
+
+}
+
+
+.confirmed{
+    background-color: #221777;
+    color: white;
+}
+.recovered{
+    background-color: #fff;
+    color: #221777;
+}
+.critical{
+    background-color: #221777;
+    color: white;
+
+}
+.deaths{
+    background-color: #fff;
+    color: #221777;
+}
+
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.label{
+    font-size: 20px;
+    
+}
+
+.input{
+    padding: 5px 40px;
+    margin: 13px 0;
+    border: none;
+    width: 300px;
+}
+
+.btn{
+    padding: 7px 23px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    border:1px solid #221777;
+    background-color: white;
+    color: #221777;
+}
+
+.btn:hover{
+    color: white;
+    background-color: #221777;
+    transition: 650ms;
+}
