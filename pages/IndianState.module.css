@@ -2,17 +2,19 @@
 
 .body{
     background-color: #192a56;
+    width: 100%;
 }
 
 .center{
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
     padding: 20px 0;
     text-align: center;
 }
 
 .table{
     border: 2px solid #fbc531;
+    width: 100%;
 }
 
 .tbody{
@@ -53,3 +55,34 @@
     color: #192a56;
     background-color: #fbc531;
 }
+
+@media (max-width: 875px) {
+    .body {
+      width: 100%;
+      overflow-x: scroll;
+    }
+    .th{
+        padding:10px 20px;
+        border-radius: 5px;
+        font-size: 18px;
+    }
+    .td{
+        padding:10px 20px;
+        border-radius: 5px;
+    }
+  }
+@media (max-width: 575px) {
+    .body {
+      width: 100%;
+      overflow-x: scroll;
+    }
+    .th{
+        padding:10px 25px;
+        border-radius: 5px;
+        font-size: 18px;
+    }
+    .td{
+        padding:10px 25px;
+        border-radius: 5px;
+    }
+  }

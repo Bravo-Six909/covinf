@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 .body{
-    display: flex;
-    justify-content: center;
-    text-align: center;
+    width: 100%;
+    height: 100%;
     background: linear-gradient(#364362,#404b69,#6691b4,#2f3640);
 }
 
@@ -45,4 +44,21 @@
 .th:nth-child(odd){
     color: #254083;
     background-color: #fbc531;
+}
+
+
+@media (max-width: 1000px) {
+    .body {
+      width: 100%;
+      overflow-x: scroll;
+    }
+    .th{
+        padding:10px 20px;
+        border-radius: 5px;
+        font-size: 18px;
+    }
+    .td{
+        padding:20px 30px;
+        border-radius: 5px;
+    }
 }

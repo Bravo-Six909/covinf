@@ -9,16 +9,16 @@
 
 .container{
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
+    width: 100%;
     flex-direction: column;
     background-color: #6c5ce7;
-    
 }
 
 .card{
-    height: 60vh;
+    height: 100%;
     width: 60vw;
     display: flex;
     flex-direction: column;
@@ -124,4 +124,27 @@
     color: white;
     background-color: #221777;
     transition: 650ms;
+}
+
+@media (max-width: 900px) {
+    .container{
+        height: 100%;
+    }
+    .detail{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 800px;
+    }
+    .recovered,.critical,.deaths,.confirmed{
+        height: 300px;
+        width: 250px;
+    }
+    .input{
+        margin-top: 50px;
+    }
+    .para1{
+        font-size: 25px;
+    }
 }

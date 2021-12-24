@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import AsPerCountryCSS from "./AsPerCountry.module.css";
+import Head from "next/head";
 
 function as_per_country() {
 
@@ -33,6 +34,9 @@ function as_per_country() {
 
     return (
         <>
+            <Head>
+              <title>Country Page</title>
+            </Head>
             <div className={AsPerCountryCSS.container}>
             <h1 className={AsPerCountryCSS.heading}>Total Cases</h1>
                 <div className={AsPerCountryCSS.card}>

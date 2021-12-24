@@ -1,54 +1,101 @@
-.container{
+.center{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(rgb(39, 88, 168),#80a4f3,#b0c2f3,#fff);
+    width: 100vw;
+    flex-direction: column;
+    background: linear-gradient(#2c3e50,#00ffff,#268d8d);
+}
+
+.centerHead{
+    color: white;
+    font-size: 4rem;
 }
 
 .card{
-    height: 70vh;
-    width: 30vw;
-    padding: 20px;
-    color: rgb(10, 116, 238);
+    width: 800px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    background-image: url("https://cliply.co/wp-content/uploads/2021/02/392102850_EARTH_EMOJI_400px.gif");
-    background-repeat: no-repeat;
+    align-items: flex-end;
+    flex-direction: column;
 }
 
-.box1{
-    background-color: transparent;
-    height: 20vh;
+.imgs{
+    height: 200px;
     width: 100%;
-    border-radius: 10px;
 }
 
-.box2{
+.datas{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
-    place-items: center;
+    width: 100%;
 }
 
-.box21,.box22,.box23,.box24,.box25{
-    height: 15vh;
-    width: 10vw;
-    object-fit: contain;
-    background-color: white;
-    /* border: 2px solid ; */
-    box-shadow: 0px 0px 2px 2px rgba(4, 169, 245, 0.767);
-    border-radius: 10px;
+.confirmed,.critical,.recovered,.deaths{
+    height: 200px;
+    width: 100%;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    border-radius: 40px;
+    cursor: pointer;
+    opacity: 0.8;
 }
 
-.box25{
-    grid-column-start: 3;
-    grid-column-end: 4;
+.confirmed{
+    border-top: 15px solid #e67e22;
+    border-bottom: 15px solid #e67e22;
+    background: linear-gradient(to top,#d89a64,transparent);
+}
+.confirmed:hover,.critical:hover,.recovered:hover,.deaths:hover{
+    opacity: 1;
+    transition-duration: 850ms;
 }
 
+.critical{
+    border-top: 15px solid #fbc531;
+    border-bottom: 15px solid #fbc531;
+    background: linear-gradient(to top,#e0c169,transparent);
+}
+.recovered{
+    border-top: 15px solid #44bd32;
+    border-bottom: 15px solid #44bd32;
+    background: linear-gradient(to top,#8edb82,transparent);
+}
+.deaths{
+    border-top: 15px solid #f1390b;
+    border-bottom: 15px solid #ee3608;
+    background: linear-gradient(to top,#e9795d,transparent);
+}
+
+.para{
+    font-size: 26px;
+}
+
+
+@media (max-width: 850px) {
+    .center{
+        height: 100%;
+        text-align: center;
+    }
+    .card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }    
+    .datas{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }    
+    .confirmed,.critical,.recovered,.deaths{
+        height: 200px;
+        width: 200px;
+    }
+}

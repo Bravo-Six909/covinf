@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import TotalCSS from "./Total.module.css";
+import Head from "next/head";
 
 const Total = () => {
 
@@ -24,40 +25,30 @@ const Total = () => {
 
     return (
         <>
-            {console.log(data)}
-            <div className={TotalCSS.container}>
+            <Head>
+                <title>World Total Page</title>
+            </Head>
+            <div style={{"backgroundImage" : `url(/images/cov1.png)`}} className={TotalCSS.center}>
+                <h1 className={TotalCSS.centerHead}>Total Cases in the World</h1>
                 <div className={TotalCSS.card}>
-
-
-                    <div className={TotalCSS.box2}>
-                        <div className={TotalCSS.box21}>
-                            <p>Confirmed</p>
+                    <div className={TotalCSS.datas}>
+                        <div className={TotalCSS.confirmed}>
+                            <strong>Confirmed </strong>
                             <p className={TotalCSS.para}>{data.confirmed}</p>
                         </div>
-
-                        <div className={TotalCSS.box22}>
-                            <p>Recovered</p>
-                            <p className={TotalCSS.para}>{data.recovered}</p>
-                        </div>
-
-                        <div className={TotalCSS.box23}>
-                            <p>Critical</p>
+                        <div className={TotalCSS.critical}>
+                            <strong>Critical</strong>
                             <p className={TotalCSS.para}>{data.critical}</p>
                         </div>
-
-                        <div className={TotalCSS.box24}>
-                            <p>Deaths</p>
+                        <div className={TotalCSS.recovered}>
+                            <strong>Recovered</strong>
+                            <p className={TotalCSS.para}>{data.recovered}</p>
+                        </div>
+                        <div className={TotalCSS.deaths}>
+                            <strong>Deaths</strong>
                             <p className={TotalCSS.para}>{data.deaths}</p>
                         </div>
-
-                        <div className={TotalCSS.box25}>
-                            <p>Last Updated</p>
-                            <p className={TotalCSS.para}>{data.lastUpdate ? data.lastUpdate.substr(0,10) : data.lastUpdate}</p>
-                        </div>
-
                     </div>
-
-
                 </div>
             </div>
         </>

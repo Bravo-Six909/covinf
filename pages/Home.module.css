@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
+.body{
+    background-color:#7a8c9e ;
+}
 .img{
     background-image: url("https://images.pexels.com/photos/3970330/pexels-photo-3970330.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1400&h=600");
     opacity: 0.7;
     height: 80vh;
-    width: 100vw;
+    width: 100%;
     color: white;
     display: flex;
     justify-content: center;
@@ -14,6 +17,34 @@
     margin-bottom: 40vh;
 }
 
+.imgs{
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px 6px rgb(119,117,117,0.5);
+    animation-name: imgAnimate;
+    animation-duration: 3000ms;
+    animation-iteration-count: infinite;
+    transition-duration: 5s;
+    animation-timing-function: linear;
+}
+
+@keyframes imgAnimate{
+    0%{
+        transform: translateY(0px);
+    }
+    25%{
+        transform: translateY(10px);
+    }
+    50%{
+        transform: translateY(0px);
+    }
+    75%{
+        transform: translateY(-10px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+
 .head{
     font-size: 70px;
 }
@@ -21,20 +52,24 @@
 .info{
     font-size: 40px;
 }
-
+.headss{
+    color: #1B1464;
+}
 .btn{
     padding: 10px 17px;
     border: none;
     font-size: 20px;
     margin: 10px 0;
-    background-color: #ec3d5a;
+    background-color: #504b7e;
     color: white;
     cursor: pointer;
-    border: 2px solid red;
+    border: 2px solid #182C61;
+    border-radius: 5px;
 }
 
 .btn:hover{
     border-color: #1B1464;
+    background-color: #788dc2;
     color: #1B1464;
     transition: 950ms;
     font-weight: bolder;
@@ -44,7 +79,12 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin: 150px 0;
+    /* margin: 150px 0; */
+    padding: 80px;
+}
+
+.Country,.Total{
+    flex-direction: row-reverse;
 }
 
 .btns{
@@ -53,19 +93,45 @@
     color: #fff;
     letter-spacing: 1px;
     font-weight: bolder;
-    background-color: #EA2027;
+    background-color: #079992;
     font-family: 'Lato', sans-serif;
     cursor: pointer;
+    border-radius: 4px;
 }
 
 .btns:hover{
     border: 0px 0px 3px 3px rgba(0,0,0,0.5);
-    background-color: #eb565b;
-    color: rgb(121, 117, 117);
+    background-color: #38ada9;
+    color: #1e3799;
     transition: 850ms;
+    box-shadow: 0px 0px 2px 1px #38ada9;
 }
 
 .paras{
     margin: 10px 0;
+    color: #0c2461;
 }
 
+.paras:hover, .headss:hover{
+    transform: translateX(9px);
+    transition-duration: 850ms;
+}
+
+
+@media (max-width: 600px) {
+    .info{
+        text-align: center;
+    }
+    .world,.Country,.States,.Total{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 150px 10px;
+        flex-direction: column;
+    }
+    .imgs{
+        height: 100%;
+        width: 100%;
+        margin: 20px 0;
+    }
+  }
