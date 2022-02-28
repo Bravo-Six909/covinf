@@ -3,16 +3,18 @@ import Link from "next/link";
 import Head from "next/head";
 
 function home() {
+
     return (
         <>
             <Head>
                 <title>Home Page</title>
+                <link rel="icon" href="/covid.ico" />
             </Head>
             <div className={HomeCSS.body}>
                 <div className={HomeCSS.img}>
                     <h1 className={HomeCSS.head}>COVINF</h1>
                     <h3 className={HomeCSS.info}>Get All Data from the World!!</h3>
-                    <Link href="/Total">
+                    <Link href="/total">
                         <button className={HomeCSS.btn}>Get World Data</button>
                     </Link>
                 </div>
@@ -65,7 +67,7 @@ function home() {
                     <div className={HomeCSS.texts}>
                         <h1 className={HomeCSS.headss}>Total World Data</h1>
                         <p className={HomeCSS.paras}>Gives realtime total covid-19 data.</p>
-                        <Link href="/Total">
+                        <Link href="/total">
                             <button className={HomeCSS.btns}>Get Total Data</button>
                         </Link>
                     </div>

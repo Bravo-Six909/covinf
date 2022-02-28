@@ -2,29 +2,21 @@ import { useEffect, useState } from "react";
 import CountryCSS from "./Country.module.css";
 import Head from "next/head";
 
-function Home() {
+function Home({res}) {
 
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch("https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/npm-covid-data/", {
-            "metdod": "GET",
-            "headers": {
-                "x-rapidapi-host": "vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com",
-                "x-rapidapi-key": "4b827ef1aamsh0da637f6804c35bp1dd115jsn2511a29bc1ab"
-            }
-        })
-            .then(response => response.json())
-            .then(datas => setData(datas))
-            .catch(err => {
-                console.error(err);
-            });
+        
+        setData(res);
+        
     }, [])
 
     return (
         <>
             <Head>
                 <title>All Country Page</title>
+                <link rel="icon" href="/covid.ico" />
             </Head>
 
             <div className={CountryCSS.body}>
@@ -67,4 +59,22 @@ function Home() {
     )
 }
 
-export default Home
+export default Home;
+
+export async function getServerSideProps(){
+    const data = await fetch("https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/npm-covid-data/", {
+        "metdod": "GET",
+        "headers": {
+            "x-rapidapi-host": "vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com",
+            "x-rapidapi-key": "4b827ef1aamsh0da637f6804c35bp1dd115jsn2511a29bc1ab"
+        }
+    });
+
+    const res = await data.json();
+
+    return{
+        props: {
+            res
+        }
+    }
+}

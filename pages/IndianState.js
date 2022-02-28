@@ -2,29 +2,19 @@ import { useState, useEffect } from "react";
 import IndianStateCSS from "./IndianState.module.css";
 import Head from "next/head";
 
-function IndianState() {
+function IndianState({res}) {
 
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch("https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/api-covid-data/reports/IND", {
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-host": "vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com",
-                "x-rapidapi-key": "4b827ef1aamsh0da637f6804c35bp1dd115jsn2511a29bc1ab"
-            }
-        })
-            .then(response => response.json())
-            .then(datas => setData(datas))
-            .catch(err => {
-                console.error(err);
-            });
+        setData(res);
     }, [])
 
     return (
         <>
             <Head>
                 <title>States Data Page</title>
+                <link rel="icon" href="/covid.ico" />
             </Head>
             <div className={IndianStateCSS.body}>
                 <div className={IndianStateCSS.center}>
@@ -61,5 +51,23 @@ function IndianState() {
     )
 }
 
-export default IndianState
+export default IndianState;
+
+export async function getServerSideProps(){
+    const data = await fetch("https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/api-covid-data/reports/IND", {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com",
+            "x-rapidapi-key": "4b827ef1aamsh0da637f6804c35bp1dd115jsn2511a29bc1ab"
+        }
+    });
+
+    const res = await data.json();
+
+    return{
+        props: {
+            res
+        }
+    }
+}
 

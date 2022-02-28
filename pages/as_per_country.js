@@ -1,34 +1,37 @@
 import { useEffect, useState } from "react";
 import AsPerCountryCSS from "./AsPerCountry.module.css";
 import Head from "next/head";
+import { useRouter } from 'next/router';
 
 function as_per_country() {
 
+    const router = useRouter();
     const [datas, setDatas] = useState({});
-    const [country, setCountry] = useState("Nepal");
+    const [country, setCountry] = useState("India");
     const [countryDatas, setCountryDatas] = useState(country);
 
     useEffect(() => {
-        fetch(`https://covid-19-data.p.rapidapi.com/country?name=${countryDatas}`, {
+        fetch(`https://countrystat.p.rapidapi.com/coronavirus/who_latest_stat_by_country.php?country=${country}`, {
             "method": "GET",
             "headers": {
-                "x-rapidapi-host": "covid-19-data.p.rapidapi.com",
+                "x-rapidapi-host": "countrystat.p.rapidapi.com",
                 "x-rapidapi-key": "4b827ef1aamsh0da637f6804c35bp1dd115jsn2511a29bc1ab"
             }
         })
             .then(response => response.json())
             .then(datas => {
-                setDatas(datas[0]);
+                setDatas(datas);
             })
             .catch(err => {
                 console.error(err);
+                alert("Unable to fetch the data. Please re-check.");
+                router.push("/");
             });
     }, [countryDatas])
 
     const submit = (e) => {
         e.preventDefault();
         setCountryDatas(country);
-        console.log(countryDatas);
     }
 
 
@@ -36,29 +39,35 @@ function as_per_country() {
         <>
             <Head>
               <title>Country Page</title>
+              <link rel="icon" href="/covid.ico" />
             </Head>
+            {console.log(datas)}
             <div className={AsPerCountryCSS.container}>
             <h1 className={AsPerCountryCSS.heading}>Total Cases</h1>
                 <div className={AsPerCountryCSS.card}>
                     <h1 className={AsPerCountryCSS.head}>
-                        {datas.country}
+                        {datas?.location}
                     </h1>
+                    <h1 className={AsPerCountryCSS.head}>
+                        {datas?.recordDate}
+                    </h1>
+                    
                     <div className={AsPerCountryCSS.detail}>
                         <div className={AsPerCountryCSS.confirmed}>
                             <p className={AsPerCountryCSS.para1}>Confirmed</p>
-                            <p className={AsPerCountryCSS.para2}>{datas.confirmed}</p>
+                            <p className={AsPerCountryCSS.para2}>{datas?.totalCases}</p>
                         </div>
                         <div className={AsPerCountryCSS.recovered}>
                             <p className={AsPerCountryCSS.para1}>Recovered</p>
-                            <p className={AsPerCountryCSS.para2}>{datas.recovered}</p>
+                            <p className={AsPerCountryCSS.para2}>{!datas?.newVaccinations ? "-" : datas?.newVaccinations}</p>
                         </div>
                         <div className={AsPerCountryCSS.critical}>
                             <p className={AsPerCountryCSS.para1}>Critical</p>
-                            <p className={AsPerCountryCSS.para2}>{datas.critical}</p>
+                            <p className={AsPerCountryCSS.para2}>{datas?.totalCasesPerMillion}</p>
                         </div>
                         <div className={AsPerCountryCSS.deaths}>
                             <p className={AsPerCountryCSS.para1}>Deaths</p>
-                            <p className={AsPerCountryCSS.para2}>{datas.deaths}</p>
+                            <p className={AsPerCountryCSS.para2}>{datas?.totalDeaths}</p>
                         </div>
 
                     </div>
