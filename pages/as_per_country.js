@@ -3,7 +3,7 @@ import AsPerCountryCSS from "./AsPerCountry.module.css";
 import Head from "next/head";
 import { useRouter } from 'next/router';
 
-function as_per_country() {
+function Aspercountry() {
 
     const router = useRouter();
     const [datas, setDatas] = useState({});
@@ -85,4 +85,4 @@ function as_per_country() {
     )
 }
 
-export default as_per_country;
+export default Aspercountry;
