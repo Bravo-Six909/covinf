@@ -66,7 +66,7 @@ export async function getServerSideProps(){
         "metdod": "GET",
         "headers": {
             "x-rapidapi-host": "vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com",
-            "x-rapidapi-key": "4b827ef1aamsh0da637f6804c35bp1dd115jsn2511a29bc1ab"
+            "x-rapidapi-key": `${process.env.NEXT_PUBLIC_API_KEY}`
         }
     });
 

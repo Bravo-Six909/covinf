@@ -15,7 +15,7 @@ function as_per_country() {
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "countrystat.p.rapidapi.com",
-                "x-rapidapi-key": "4b827ef1aamsh0da637f6804c35bp1dd115jsn2511a29bc1ab"
+                "x-rapidapi-key": `${process.env.NEXT_PUBLIC_API_KEY}`
             }
         })
             .then(response => response.json())
