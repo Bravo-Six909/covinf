@@ -32,7 +32,6 @@ function IndianState({res}) {
                         {data.map((item, i) => {
                             return (
                                 <tbody className={IndianStateCSS.tbody} key={i}>
-                                    {console.log(i)}
                                     <tr className={IndianStateCSS.tr}>
                                         <td style={{ color: "#0097e6" }} className={IndianStateCSS.td}>{item.province}</td>
                                         <td className={IndianStateCSS.td}>{item.confirmed}</td>
